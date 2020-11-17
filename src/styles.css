@@ -1,0 +1,157 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+.signLogin {
+  background-color: #EFF0F1;
+  height: 100%;
+}
+
+.signUpContainer {
+  display: flex;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 70%;
+  border-radius: 20px;
+  justify-content: center;
+  background-color: white;
+  box-shadow: 3px 8px 28px 1px rgba(0, 0, 0, 0.53);
+}
+
+.logInContainer {
+  display: flex;
+  width: 50%;
+  border-radius: 20px;
+  justify-content: center;
+  background-color: white;
+  box-shadow: 3px 8px 28px 1px rgba(0, 0, 0, 0.53);
+}
+
+.cdk-overlay-pane {
+  margin-top: 50px !important;
+  margin-right: 90px !important;
+}
+
+.askQuestionButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bg-image {
+  background-repeat: no-repeat;
+
+  height: 193px;
+  background-image: url("./img/bg.png");
+  background-position: right;
+}
+
+.questionForm {
+  min-width: 500px !important;
+  max-width: 1000px;
+  width: 100%;
+}
+
+.questionGroup {
+    width: 60%;
+}
+.section-ask {
+    padding: 16px;
+    background-color: #ffff;
+    border-radius: 10px;
+    box-shadow: 2px 8px 28px 1px rgba(0, 0, 0, 0.33);
+}
+
+.question-button {
+    margin-top: 15px !important;
+}
+
+.card-content-title {
+  text-decoration: none !important;
+  color:#FF4081 !important;
+  font-size: 16px !important;
+}
+.question-card-links {
+  display: flex !important;
+  justify-content: flex-end;
+}
+.question-card-link-item {
+  text-decoration: none !important;
+  
+  font-size: 12px;
+}
+
+.boxes {
+  display: flex;
+  justify-content:space-evenly;
+  margin: 15px 0 15px 0;
+}
+
+.answers {
+  text-decoration: none !important;
+  height: 60px;
+  width: 60px;
+  border: 1px solid;
+  border-color: #48A868;
+  border-radius: 10px;
+  color: #48A868;
+}
+
+.likes {
+  text-decoration: none !important;
+  height: 60px;
+  width: 60px;
+  border: 1px solid;
+  border-color:#1876D2;
+  border-radius: 10px;
+  color: #1876D2;
+}
+.likesAndAnswers{
+  padding:0px !important;
+}
+
+.question-detail-container {
+  padding: 24px;
+}
+.detail-header {
+  display:flex;
+  justify-content:space-between;
+
+}
+
+.asked {
+  font-size: 12px;
+}
+
+.asked-link {
+  text-decoration: none !important;
+}
+.profile-1 {
+  width: 45px;
+  height: 45px;
+  background-color:grey;
+}
+.profile-card {
+  padding: 10px !important;
+  background-color: #E1ECF4; 
+}
+.like-section-1 {
+  margin: 10px !important;
+  background-color: #E1ECF4; 
+
+}
+
+.my-btn {
+  margin:10px 0 10px 0 !important;
+  padding: 0 12px 0 12px !important;
+} 

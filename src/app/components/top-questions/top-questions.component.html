@@ -1,0 +1,44 @@
+<div class="row border-bottom" style="margin-top:20px; padding:30px;">
+    <div class="col-md-9">
+        <h1 class="text-muted" style="font-size: 35px;">Top questions</h1>
+    </div>
+    <div class="col-md-3">
+        <button *ngIf="checkLog" style="background:rgb(0,149,255);" mat-raised-button color="primary"
+            routerLink="/questions/ask">Ask Question</button>
+    </div>
+</div>
+<div *ngFor="let question of questions" class="row mb-2 mt-2">
+    <div class="col-md-3 likesAndAnswers">
+
+        <div class="boxes">
+            <a [routerLink]="['questions',question._id,question.slug]" class="answers text-center p-2">
+                <span>{{question.answerCount}}</span>
+                <span style="font-size:11px;"><br> Answers</span>
+            </a>
+
+            <a [routerLink]="['questions',question._id,question.slug]" class="likes text-center p-2">
+                <span>{{question.likeCount}}</span>
+                <span style="font-size:11px;"><br> Likes</span>
+
+            </a>
+        </div>
+
+
+    </div>
+
+    <div class="col-md-9 likesAndAnswers">
+        <mat-card class="question-card">
+            <mat-card-content><a class="card-content-title"
+                    [routerLink]="['questions',question._id,question.slug]">{{question.title}}</a></mat-card-content>
+            <div class="question-card-links">
+                <a class="question-card-link-item text-muted mr-1"
+                    [routerLink]="['questions',question._id,question.slug]"
+                    style="color:black"><span>{{question.createdAt | date:'MMM d, y, h:mm:ss a'}}</span></a>
+                <a class="question-card-link-item"
+                    [routerLink]="['questions',question._id,question.slug]"><span>{{question.user}}</span></a>
+            </div>
+        </mat-card>
+    </div>
+
+
+</div>

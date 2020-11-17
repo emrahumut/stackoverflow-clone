@@ -1,0 +1,42 @@
+<div class="detail-header">
+    <h1 class="lead mt-2">{{question?.title}}</h1>
+    <!-- *ngIf="checkLog" -->
+    <button style="background:rgb(0,149,255);" mat-raised-button color="primary" routerLink="/questions/ask">Ask
+        Question</button>
+</div>
+
+<div class="asked">
+    Asked <span class="asked-link">{{question?.createdAt | date:'MMM d, y, h:mm:ss a'}}</span>
+</div>
+
+<hr>
+<div class="detail-content">
+    <p style="padding: 0 20px 0 20px;">{{question?.content}}</p>
+    <div class="row">
+        <div class="col-md-5 mr-auto ml-3">
+            <mat-card class="like-section-1 d-flex justify-content-center" style="padding: 0 !important;">
+                <button (click)="like()" class="my-btn m-4" mat-raised-button color=warn>
+                    <mat-icon>thumb_up</mat-icon>
+                </button>
+                <div class="d-flex align-items-center ml-2"><strong>{{question?.likeCount}}</strong>
+                </div>
+                <p class="d-flex align-items-center ml-1" style="font-size: 10px;"> people liked this
+                    question</p>
+            </mat-card>
+        </div>
+        <div class="col-md-3 ml-auto">
+            <mat-card class="profile-card">
+                <span style="font-size: 10px;">asked ... ago</span>
+                <div class="row pl-3">
+                    <img class="profile-1" [src]="user?.profile_image" routerLink="/users/{{user?._id}}">
+                    <a routerLink="/users/{{user?._id}}" class="asked-link ml-2">
+                        {{user?.name}}
+                    </a>
+                </div>
+            </mat-card>
+        </div>
+
+
+
+    </div>
+</div>

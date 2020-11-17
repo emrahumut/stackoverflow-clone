@@ -1,0 +1,78 @@
+<app-navbar></app-navbar>
+<div class="signLogin">
+    <div class="container">
+        <div class="row" style="display: flex; align-items: center;">
+            <div class="col-md-6">
+                <h1>Join the Stack Overflow community</h1>
+                <div class="row mt-4 mb-3">
+                    <mat-icon class="mr-2">question_answers</mat-icon>
+                    <p> Unlock new privileges like voting and commenting</p>
+                </div>
+                <div class="row mb-3">
+                    <mat-icon class="mr-2">swap_vert</mat-icon>
+                    <p> Get unstuck — ask a question</p>
+                </div>
+                <div class="row mb-3">
+                    <mat-icon class="mr-2">label</mat-icon>
+                    <p> Save your favorite tags, filters, and jobs</p>
+                </div>
+
+                <div class="row mb-3">
+                    <mat-icon class="mr-2">emoji_events</mat-icon>
+                    <p>Earn reputation and badges</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-container signUpContainer">
+
+                    <form method="post" class="mb-5 mt-5" [formGroup]="newUserForm" (ngSubmit)="newUser()">
+                        <h1 class="form-header">Sign up
+                            <hr>
+                        </h1>
+                        <div class="form-group">
+                            <mat-form-field>
+                                <mat-label>Your name</mat-label>
+                                <input formControlName="name" matInput required>
+                                <mat-error
+                                    *ngIf="(newUserControl.name.touched || submitted) && newUserControl.name.errors?.required">
+                                    Name is <strong>required</strong>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form-group">
+                            <mat-form-field>
+                                <mat-label>Enter your email</mat-label>
+                                <input matInput placeholder="example@example.com" formControlName="email" required>
+                                <mat-error *ngIf="newUserForm.get('email').hasError('required')">Email is
+                                    <strong>required</strong></mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="form-group">
+                            <mat-form-field>
+                                <mat-label>Password</mat-label>
+                                <input formControlName="password" type="password" matInput required minlength="5">
+                                <mat-error
+                                    *ngIf="(newUserControl.password.touched || submitted) && newUserControl.password.errors?.required && newUserControl.password.errors.minlength">
+                                    Password is <strong>required</strong>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+
+
+                        <p class="passwordP" style="display:flex; font-size: 10px;">*Passwords must contain at least
+                            eight characters,
+                            including at least 1 letter and 1 number.</p>
+
+               
+            
+                        <button class="signUpButton" [disabled]="newUserForm.invalid" type="submit" mat-raised-button
+                            color="primary">Sign
+                            up</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

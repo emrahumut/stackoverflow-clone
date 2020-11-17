@@ -1,0 +1,45 @@
+<hr>
+<div class="row">
+    <div class="container m-4">
+        <div class="row">
+            <h1 *ngIf="elm.answerCount != 0">{{elm.answerCount}} Answer<h1 *ngIf="elm.answerCount > 1"
+                    style="display: inline-block;">s</h1>
+            </h1>
+        </div>
+
+        <div class="row" *ngFor="let answer of answers">
+            <mat-card class="question-card mb-4" style="width:100% !important;">
+                <mat-card-content>{{answer.content}}</mat-card-content>
+                <div class="question-card-links">
+                    <div class="like-section-1 d-flex justify-content-center">
+                        <a class="question-card-link-item text-muted mr-1"
+                            style="color:black"><span>{{answer.createdAt | date:'MMM d, y, h:mm:ss a'}}</span></a>
+                        <a class="question-card-link-item"><span>{{answer.user}}</span></a>
+
+                        <button class="my-btn m-4" mat-raised-button color=warn>
+                            <mat-icon>thumb_up</mat-icon>
+                        </button>
+
+                        <div class="d-flex align-items-center ml-2"><strong>{{answer?.likeCount}}</strong>
+                        </div>
+                        <p class="d-flex align-items-center ml-1" style="font-size: 10px;"> people liked this
+                            question</p>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+
+        <div>
+            <h1>Your Answer</h1>
+            <div class="row section-ask">
+                <form method="post" class="questionForm" [formGroup]="editQuestionForm" (ngSubmit)="addAnswer()">
+                    <ckeditor style="height:10%;" formControlName="content" name="PageContent" required
+                        [config]="ckeConfig" debounce="500"></ckeditor>
+                    <!-- <mat-error *ngIf="newUserForm.get('email').hasError('required')">Email is <strong>required</strong></mat-error> -->
+                    <button class="question-button" type="submit" mat-raised-button color="primary">Post Your
+                        Answer</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

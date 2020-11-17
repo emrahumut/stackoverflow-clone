@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <div class="container">
+        <div>
+            <button routerLink="/" mat-icon-button color="primary" aria-label="Example icon button with a home icon">
+                <mat-icon>home</mat-icon>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="menuac">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Products</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">For Teams</a></li>
+            </ul>
+        </div>
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        </form>
+
+
+        <button *ngIf="!loginCheck" class="mr-2" mat-raised-button color="primary" routerLink="/users/login">Log
+            in</button>
+        <button *ngIf="!loginCheck" mat-raised-button color="accent" routerLink="/users/signup">Sign up</button>
+
+        <button *ngIf="loginCheck" mat-raised-button color="accent" routerLink="/users/logout">Logout</button>
+    </div>
+</nav>
