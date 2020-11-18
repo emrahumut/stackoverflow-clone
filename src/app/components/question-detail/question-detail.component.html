@@ -5,13 +5,12 @@
             left
         </div>
         <div class="col-md-8 border-left border-right">
-            <app-question-detail-body (elm)="getQuestionData($event)"></app-question-detail-body>
-            <app-answers-section [elm]="question" *ngIf="question"></app-answers-section>
+            <app-question-detail-body [question]="question" [user]="user"></app-question-detail-body>
+            <app-answers-section [answers]="answers"></app-answers-section>
         </div>
 
         <div class="col-md-2">
             right
         </div>
     </div>
-
 </div>

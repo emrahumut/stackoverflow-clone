@@ -1,11 +1,11 @@
 <hr>
 <div class="row">
     <div class="container m-4">
-        <div class="row">
-            <h1 *ngIf="elm.answerCount != 0">{{elm.answerCount}} Answer<h1 *ngIf="elm.answerCount > 1"
+        <!-- <div class="row">
+            <h1 *ngIf="answers.length != 0">{{answers.answerCount}} Answer<h1 *ngIf="answers.answerCount > 1"
                     style="display: inline-block;">s</h1>
             </h1>
-        </div>
+        </div> -->
 
         <div class="row" *ngFor="let answer of answers">
             <mat-card class="question-card mb-4" style="width:100% !important;">

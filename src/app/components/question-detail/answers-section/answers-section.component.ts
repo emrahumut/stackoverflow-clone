@@ -14,11 +14,10 @@ import { SnackbarService } from 'src/app/services/snackbar.service';
 })
 export class AnswersSectionComponent implements OnInit {
 
-  @Input() elm: any;
+  @Input() answers;
 
   editQuestionForm: FormGroup;
   ckeConfig: any;
-  answers: Answer;
 
   constructor(
     private router: Router,
@@ -39,16 +38,10 @@ export class AnswersSectionComponent implements OnInit {
       extraPlugins: 'divarea',
       forcePasteAsPlainText: true
     };
-    this.getAllAnswers();
   }
 
   addAnswer () {
     // adding answer section.
   }
  
-  getAllAnswers() {
-    this.answersService.getAnswers(this.elm._id).subscribe(d => {
-      this.answers = d.data;
-    });
-  }
-}
+ }
