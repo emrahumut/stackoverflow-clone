@@ -4,4 +4,5 @@ export class Answer {
     likes?: Array<string>;
     user:string;
     question:string;
+    likeCount: number;
 }

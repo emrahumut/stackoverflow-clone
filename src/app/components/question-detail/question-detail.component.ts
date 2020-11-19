@@ -7,6 +7,7 @@ import { Question } from 'src/app/models/question';
 import { User } from 'src/app/models/user';
 import { AnswersService } from 'src/app/services/answers.service';
 import { QuestionsService } from 'src/app/services/questions.service';
+import { TokenService } from 'src/app/services/token.service';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
@@ -19,12 +20,14 @@ export class QuestionDetailComponent implements OnInit {
   question: Question;
   user: User;
   answers: Answer[];
-
+  isLogged: boolean = this.tokenService.isLoggedIn();
+  
   constructor(
     private questionsService: QuestionsService,
     private usersService: UsersService,
     private answersService: AnswersService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private tokenService: TokenService,
   ) { }
 
   ngOnInit(): void {

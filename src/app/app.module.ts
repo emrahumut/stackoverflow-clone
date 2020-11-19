@@ -29,6 +29,7 @@ import { QuestionDetailComponent } from './components/question-detail/question-d
 import { ProfileComponent } from './components/profile/profile.component';
 import { QuestionDetailBodyComponent } from './components/question-detail/question-detail-body/question-detail-body.component';
 import { AnswersSectionComponent } from './components/question-detail/answers-section/answers-section.component';
+import { LikeComponent } from './components/like/like.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { AnswersSectionComponent } from './components/question-detail/answers-se
     AnswersSectionComponent,
     ProfileComponent,
     QuestionDetailBodyComponent,
+    LikeComponent,
   ],
   
   imports: [

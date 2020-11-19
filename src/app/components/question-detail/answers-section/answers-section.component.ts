@@ -15,16 +15,20 @@ import { SnackbarService } from 'src/app/services/snackbar.service';
 export class AnswersSectionComponent implements OnInit {
 
   @Input() answers;
+  @Input() isLogged;
 
   editQuestionForm: FormGroup;
   ckeConfig: any;
+  likeCount: Number;
+  type: string = "answer"; 
 
   constructor(
     private router: Router,
     private questionsService: QuestionsService,
     private snakebar: SnackbarService,
     private route: ActivatedRoute,
-    private answersService: AnswersService
+    private answersService: AnswersService,
+
   ) { }
 
   ngOnInit(): void {
@@ -42,6 +46,14 @@ export class AnswersSectionComponent implements OnInit {
 
   addAnswer () {
     // adding answer section.
+  }
+
+  likeAnswer(questionId:string, answerId:string) {
+    this.answersService.likeAnswer(questionId, answerId)
+    .subscribe(d => {
+      let answer = this.answers.find(a => a._id === answerId)
+      answer.likeCount = d.likeCount
+    });   
   }
  
  }

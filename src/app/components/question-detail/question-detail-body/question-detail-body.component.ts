@@ -1,11 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { defer, of } from 'rxjs';
-import { mergeMap, find, skip, filter, delay, map, mergeAll, concatMap } from 'rxjs/operators';
-import { Question } from 'src/app/models/question';
-import { QuestionsService, ResponseModel } from 'src/app/services/questions.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { QuestionsService} from 'src/app/services/questions.service';
 import { TokenService } from 'src/app/services/token.service';
-import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-question-detail-body',
@@ -16,9 +11,10 @@ export class QuestionDetailBodyComponent implements OnInit {
 
   @Input() question;
   @Input() user;
+  @Input() isLogged;
   checkLog: boolean;
-
-
+  type: string = "question"; 
+  
   constructor(
     private questionsService: QuestionsService,
     private tokenService: TokenService,
@@ -28,11 +24,12 @@ export class QuestionDetailBodyComponent implements OnInit {
     this.checkLog = this.tokenService.isLoggedIn();
   }
 
-  like() {
-    this.questionsService.likeQuestion(this.question._id)
-    .subscribe(d => {
-      this.question.likeCount = d.data.likeCount
-    });
+  likeQuestion(id: string) {
+    this.questionsService.likeQuestion(id)
+      .subscribe(d => {
+        console.log(d);
+        this.question.likeCount = d.likeCounts
+      });
   }
 
 }
