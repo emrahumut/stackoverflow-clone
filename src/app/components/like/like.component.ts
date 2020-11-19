@@ -10,7 +10,7 @@ import { QuestionsService } from 'src/app/services/questions.service';
 export class LikeComponent implements OnInit {
 
   @Input() data;
-  @Input() type: string;
+  @Input() likeType: string;
 
   constructor(
     private questionsService: QuestionsService,
@@ -21,14 +21,14 @@ export class LikeComponent implements OnInit {
   }
 
   like() {
-    if (this.type === "question") {
+    if (this.likeType === "question") {
       this.questionsService.likeQuestion(this.data._id)
         .subscribe(d => {
           console.log(d);
           this.data.likeCount = d.likeCounts
         });
     }
-    if (this.type === "answer") {
+    if (this.likeType === "answer") {
       this.answersService.likeAnswer(this.data.question, this.data._id)
         .subscribe(d => {
           this.data.likeCount = d.likeCount

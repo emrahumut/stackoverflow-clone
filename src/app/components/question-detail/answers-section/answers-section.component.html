@@ -16,7 +16,7 @@
                             style="color:black"><span>{{answer.createdAt | date:'MMM d, y, h:mm:ss a'}}</span></a>
                         <a class="question-card-link-item"><span>{{answer.user}}</span></a>
                     </div>
-                    <app-like [data]="answer" [type]="type"></app-like>
+                    <app-like [data]="answer" [likeType]="likeType"></app-like>
                     <!-- <mat-card *ngIf="isLogged" class="like-section-1 d-flex justify-content-center" style="width: 25%;">
                         <button (click)="likeAnswer(answer.question,answer._id)" class="my-btn m-4" mat-raised-button color=warn>
                             <mat-icon>thumb_up</mat-icon>
