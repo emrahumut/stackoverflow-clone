@@ -13,7 +13,7 @@ export class QuestionDetailBodyComponent implements OnInit {
   @Input() user;
   @Input() isLogged;
   checkLog: boolean;
-  type: string = "question"; 
+  likeType: string = "question"; 
   
   constructor(
     private questionsService: QuestionsService,

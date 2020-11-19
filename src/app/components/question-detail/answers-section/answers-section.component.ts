@@ -20,7 +20,7 @@ export class AnswersSectionComponent implements OnInit {
   editQuestionForm: FormGroup;
   ckeConfig: any;
   likeCount: Number;
-  type: string = "answer"; 
+  likeType: string = "answer"; 
 
   constructor(
     private router: Router,
