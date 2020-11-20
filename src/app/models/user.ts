@@ -3,6 +3,7 @@ export class User {
     email: string;
     password: string;
     role?: string;
+    _id:string;
     createdAt?:Date;
     title?:string;
     about?:string;

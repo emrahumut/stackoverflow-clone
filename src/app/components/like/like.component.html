@@ -1,9 +1,32 @@
-<mat-card class="like-section-1 d-flex justify-content-center" style="padding: 0 !important;width: 75%;">
-    <button (click)="like()" class="my-btn m-4" mat-raised-button color=warn>
-        <mat-icon>thumb_up</mat-icon>
-    </button>
-    <div class="d-flex align-items-center ml-2"><strong>{{data.likeCount}}</strong>
+<mat-card class="like-section-1 d-flex justify-content-center" style="width:75%;">
+    <div *ngIf="isLogged === true; then loggedUser else nLoggedUser"></div>
+
+    <ng-template #loggedUser>        
+        <button (click)="like()"
+            class="my-btn" 
+            mat-raised-button color={{likeConfig.btnColor}}
+            >
+            <mat-icon style="font-size:18px;">thumb_up</mat-icon>
+        </button>
+    </ng-template>
+    <ng-template #nLoggedUser>
+        <button
+            class="my-btn" 
+
+            mat-raised-button color={{likeConfig.btnColor}}
+            routerLink="/users/login"
+            placement="left"
+            ngbPopover="Only users can like. Please login or sign up" 
+            [closeDelay]="500" 
+            triggers="mouseenter:mouseleave"
+            >
+            <mat-icon style="font-size:18px;">thumb_up</mat-icon>
+        </button>
+    </ng-template>
+
+
+
+    <div class="d-flex align-items-center ml-2"><strong style="font-size:17px; margin-right: 3px;">{{data?.likeCount}}</strong> likes
     </div>
-    <p class="d-flex align-items-center ml-1" style="font-size: 10px;"> people liked this
-        question</p>
+    
 </mat-card>

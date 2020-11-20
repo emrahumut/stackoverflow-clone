@@ -14,27 +14,9 @@
     <p style="padding: 0 20px 0 20px;">{{question?.content}}</p>
     <div class="row">
         <div class="col-md-5 mr-auto ml-3">
-
-            <app-like [data]="question" [likeType]="likeType"></app-like>
-
-            <!-- <mat-card *ngIf="isLogged" class="like-section-1 d-flex justify-content-center" style="padding: 0 !important;width: 75%;">
-                <button (click)="likeQuestion(question?._id)" class="my-btn m-4" mat-raised-button color=warn>
-                    <mat-icon>thumb_up</mat-icon>
-                </button>
-                <div class="d-flex align-items-center ml-2"><strong>{{question?.likeCount}}</strong>
-                </div>
-                <p class="d-flex align-items-center ml-1" style="font-size: 10px;"> people liked this
-                    question</p>
-            </mat-card>
-
-            <mat-card *ngIf="!isLogged" class="like-section-1 d-flex justify-content-center" style="padding: 0 !important;width: 65%; ">
-                <div class="d-flex align-items-center ml-2"><strong>{{question?.likeCount}}</strong>
-                </div>
-                <p class="d-flex align-items-center ml-1" style="font-size: 10px;"> people liked this
-                    question</p>
-            </mat-card> -->
+            <app-like [data]="question" [likeType]="likeType" [likeConfig]="likeConfig"></app-like>
         </div>
-        <div class="col-md-3 ml-auto">
+        <div class="col-md-4 ml-auto">
             <mat-card class="profile-card">
                 <span style="font-size: 10px;">asked ... ago</span>
                 <div class="row pl-3">
@@ -45,8 +27,5 @@
                 </div>
             </mat-card>
         </div>
-
-
-
     </div>
 </div>

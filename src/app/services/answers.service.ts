@@ -29,6 +29,6 @@ export class AnswersService {
     };
     
     httpOptions.headers = httpOptions.headers.set('Authorization', this.tokenService.getTokenFromStorage())
-    return this.http.get(this.apiUrl + questionId + "/answers/" + answerId + "/like", httpOptions)
+    return this.http.get<any>(this.apiUrl + questionId + "/answers/" + answerId + "/like", httpOptions)
   }
 }

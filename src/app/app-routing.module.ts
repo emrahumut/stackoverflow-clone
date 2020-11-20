@@ -51,6 +51,16 @@ const routes: Routes = [
         component:QuestionDetailComponent
       }
     ]
+  },
+  {
+    "path":"profile",
+    children: [
+      {
+      path:":id",
+      component:ProfileComponent,
+      }
+    ]
+
   }
 ];
 

@@ -14,6 +14,7 @@ export class QuestionDetailBodyComponent implements OnInit {
   @Input() isLogged;
   checkLog: boolean;
   likeType: string = "question"; 
+  likeConfig: any;
   
   constructor(
     private questionsService: QuestionsService,
@@ -22,14 +23,10 @@ export class QuestionDetailBodyComponent implements OnInit {
 
   ngOnInit(): void {
     this.checkLog = this.tokenService.isLoggedIn();
+    
+    this.likeConfig = {
+      likeCheck : null,
+      btnColor: "warn"
+    }
   }
-
-  likeQuestion(id: string) {
-    this.questionsService.likeQuestion(id)
-      .subscribe(d => {
-        console.log(d);
-        this.question.likeCount = d.likeCounts
-      });
-  }
-
 }

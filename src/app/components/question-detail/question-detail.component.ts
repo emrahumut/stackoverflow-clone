@@ -41,6 +41,7 @@ export class QuestionDetailComponent implements OnInit {
           .pipe(
             map(user => {
               this.user = user.data;
+              console.log(this.user);
               return question._id;
             }),
             mergeMap(questionId => this.answersService.getAnswers(questionId)

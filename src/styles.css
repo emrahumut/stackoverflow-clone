@@ -146,15 +146,29 @@ body {
   background-color: #E1ECF4; 
 }
 .like-section-1 {
-  margin: 10px !important;
   padding: 0 !important;
   padding-left: 5px !important;
   padding-right: 5px !important;
-  background-color: rgba(244,128,36,0.25); 
 
 }
 
 .my-btn {
-  margin:10px 0 10px 0 !important;
-  padding: 0 12px 0 12px !important;
+  display: flex;
+  margin:5px !important;
+  padding: 0px !important;
+  padding-top: 3px !important;
+  height: 40px !important;
+  width: 40px !important;
+  min-width: unset !important;
+  border-radius: 80% !important;
+  flex-shrink: 1 !important; 
+  outline: none !important;
 } 
+
+.like-button {
+  background-color:red !important;
+}
+
+.unliked-button {
+  background-color:green !important;
+}
