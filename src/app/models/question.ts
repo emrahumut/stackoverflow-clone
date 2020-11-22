@@ -3,10 +3,10 @@ export class Question {
     content:string;
     slug?:string; 
     createdAt?:Date; 
-    user:string;
+    user?:string;
     likeCount?:Number; 
     answerCount?:Number; 
     likes?:Array<string>; 
     answers?:Array<string>;
-    _id:string; 
+    _id?:string; 
 }

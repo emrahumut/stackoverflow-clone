@@ -26,10 +26,10 @@
         <div>
             <h1>Your Answer</h1>
             <div class="row section-ask">
-                <form method="post" class="questionForm" [formGroup]="editQuestionForm" (ngSubmit)="addAnswer()">
+                <form method="post" class="questionForm" [formGroup]="newAnswerForm" (ngSubmit)="addAnswer()">
                     <ckeditor style="height:10%;" formControlName="content" name="PageContent" required
                         [config]="ckeConfig" debounce="500"></ckeditor>
-                    <!-- <mat-error *ngIf="newUserForm.get('email').hasError('required')">Email is <strong>required</strong></mat-error> -->
+
                     <button class="question-button" type="submit" mat-raised-button color="primary">Post Your
                         Answer</button>
                 </form>

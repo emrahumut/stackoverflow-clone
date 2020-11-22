@@ -20,6 +20,19 @@ export class AnswersService {
   getAnswers(id : string): Observable<any> {
     return this.http.get<Answer>(this.apiUrl+id+"/answers")
   }
+
+  addNewAnswer(answer: Answer,questionId : string): Observable<any>{
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'my-auth-token'
+      })
+    };
+    
+    httpOptions.headers = httpOptions.headers.set('Authorization', this.tokenService.getTokenFromStorage())
+    return this.http.post<any>(this.apiUrl+ questionId+"/answers", answer, httpOptions)
+  }
+
   likeAnswer(questionId: string, answerId: string): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({

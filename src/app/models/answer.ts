@@ -3,6 +3,6 @@ export class Answer {
     createdAt: Date;
     likes?: Array<string>;
     user:string;
-    question:string;
-    likeCount: number;
+    question?:string;
+    likeCount?: number;
 }

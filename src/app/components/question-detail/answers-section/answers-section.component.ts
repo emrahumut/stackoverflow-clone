@@ -19,7 +19,7 @@ export class AnswersSectionComponent implements OnInit {
   @Input() isLogged;
   @Input() user: User;
 
-  editQuestionForm: FormGroup;
+  newAnswerForm: FormGroup;
   ckeConfig: any;
   likeConfig: any;
   likeCount: Number;
@@ -35,8 +35,7 @@ export class AnswersSectionComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.editQuestionForm = new FormGroup({
-      title: new FormControl('', [Validators.required]),
+    this.newAnswerForm = new FormGroup({
       content: new FormControl('', [Validators.required])
     });
 
@@ -53,7 +52,16 @@ export class AnswersSectionComponent implements OnInit {
   }
 
   addAnswer () {
-    // adding answer section.
+    this.answersService.addNewAnswer(this.newAnswerForm.value,this.route.snapshot.paramMap.get("id"))
+    .subscribe(d => {
+      this.answers.push(d.data);
+    })
+
+    let currentUrl = this.router.url;
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+        this.router.navigate([currentUrl]);
+    });
+    this.snakebar.openSnackBar("Your answer has been added successfully!","X")
   }
 
   likeAnswer(questionId:string, answerId:string) {

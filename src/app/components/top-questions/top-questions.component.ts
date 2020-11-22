@@ -19,11 +19,10 @@ export class TopQuestionsComponent implements OnInit {
 
   questions: Question;
   checkLog: boolean = false;
-  questions2: any;
+
   ngOnInit(): void {
     this.checkLog = this.tokenService.isLoggedIn();
     this.getAllQuestions();
-    // this.getQuestionss();
   }
 
   getAllQuestions() {

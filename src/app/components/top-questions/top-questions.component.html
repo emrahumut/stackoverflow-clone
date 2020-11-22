@@ -9,23 +9,17 @@
 </div>
 <div *ngFor="let question of questions" class="row mb-2 mt-2">
     <div class="col-md-3 likesAndAnswers">
-
         <div class="boxes">
             <a [routerLink]="['questions',question._id,question.slug]" class="answers text-center p-2">
                 <span>{{question.answerCount}}</span>
                 <span style="font-size:11px;"><br> Answers</span>
             </a>
-
             <a [routerLink]="['questions',question._id,question.slug]" class="likes text-center p-2">
                 <span>{{question.likeCount}}</span>
                 <span style="font-size:11px;"><br> Likes</span>
-
             </a>
         </div>
-
-
     </div>
-
     <div class="col-md-9 likesAndAnswers">
         <mat-card class="question-card">
             <mat-card-content><a class="card-content-title"
