@@ -23,7 +23,7 @@ export class AnswersSectionComponent implements OnInit {
   ckeConfig: any = null;
   likeConfig: any;
   likeCount: Number = 0;
-  likeType: string = "answer"; 
+  likeType: string = "answer";
 
   constructor(
     private router: Router,
@@ -39,7 +39,7 @@ export class AnswersSectionComponent implements OnInit {
     });
 
     this.likeConfig = {
-      likeCheck : null,
+      likeCheck: null,
       btnColor: "accent"
     }
 
@@ -50,25 +50,25 @@ export class AnswersSectionComponent implements OnInit {
     };
   }
 
-  addAnswer () {
-    this.answersService.addNewAnswer(this.newAnswerForm.value,this.route.snapshot.paramMap.get("id"))
-    .subscribe(d => {
-      this.answers.push(d.data);
-    })
+  addAnswer() {
+    this.answersService.addNewAnswer(this.newAnswerForm.value, this.route.snapshot.paramMap.get("id"))
+      .subscribe(d => {
+        this.answers.push(d.data);
+      })
 
     let currentUrl = this.router.url;
-    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
-        this.router.navigate([currentUrl]);
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate([currentUrl]);
     });
-    this.snakebar.openSnackBar("Your answer has been added successfully!","X")
+    this.snakebar.openSnackBar("Your answer has been added successfully!", "X")
   }
 
-  likeAnswer(questionId:string, answerId:string) {
+  likeAnswer(questionId: string, answerId: string) {
     this.answersService.likeAnswer(questionId, answerId)
-    .subscribe(d => {
-      let answer = this.answers.find(a => a._id === answerId)
-      answer.likeCount = d.likeCount
-    });   
+      .subscribe(d => {
+        let answer = this.answers.find(a => a._id === answerId)
+        answer.likeCount = d.likeCount
+      });
   }
- 
- }
+
+}

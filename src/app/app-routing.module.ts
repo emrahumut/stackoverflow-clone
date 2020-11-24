@@ -2,11 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { QuestionDetailComponent } from './components/question-detail/question-detail.component';
 import { NewquestionComponent } from './components/question/newquestion/newquestion.component';
-import { UpdateDeleteComponent } from './components/update-delete/update-delete.component';
-import { LoginComponent } from './components/user/login/login.component';
-import { LogoutComponent } from './components/user/logout/logout.component';
+import { UpdateComponent } from './components/update/update-delete.component';
 import { ProfileComponent } from './components/user/profile/profile.component';
-import { SignUpComponent } from './components/user/sign-up/sign-up.component';
 import { LoginGuard } from './guards/login.guard';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 
@@ -19,25 +16,7 @@ const routes: Routes = [
   },
   {
     "path":"users",
-    children: [
-      {
-        path:"signup",
-        component: SignUpComponent
-      },
-      {
-        path:"login",
-        component:LoginComponent
-      },
-      {
-        path:"logout",
-        canActivate:[LoginGuard],
-        component:LogoutComponent
-      },
-      {
-        path:":id",
-        component:ProfileComponent
-      }
-    ]
+    loadChildren: () => import("./components/user/user.module").then(n => n.UserModule),
   },
   {
     "path":"questions",
@@ -62,12 +41,13 @@ const routes: Routes = [
       }
     ]
   },
+
   {
     "path":"edit",
     children: [
       {
-        path:"question/:id",
-        component:UpdateDeleteComponent
+        path:":type/:id",
+        component:UpdateComponent
       }
     ]
   }
