@@ -23,13 +23,13 @@ import { QuestionDetailComponent } from './components/question-detail/question-d
 import { QuestionDetailBodyComponent } from './components/question-detail/question-detail-body/question-detail-body.component';
 import { AnswersSectionComponent } from './components/question-detail/answers-section/answers-section.component';
 import { LikeComponent } from './components/like/like.component';
-import { UpdateDeleteComponent } from './components/update-delete/update-delete.component';
 import { ProfileComponent } from './components/user/profile/profile.component';
 import { LogoutComponent } from './components/user/logout/logout.component';
 import { NewquestionComponent } from './components/question/newquestion/newquestion.component';
 import { TopQuestionsComponent } from './components/question/top-questions/top-questions.component';
 import { SignUpComponent } from './components/user/sign-up/sign-up.component';
 import { LoginComponent } from './components/user/login/login.component';
+import { UpdateComponent } from './components/update/update-delete.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +46,7 @@ import { LoginComponent } from './components/user/login/login.component';
     ProfileComponent,
     QuestionDetailBodyComponent,
     LikeComponent,
-    UpdateDeleteComponent,
+    UpdateComponent
   ],
   
   imports: [
