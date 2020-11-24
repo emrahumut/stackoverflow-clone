@@ -1,24 +1,26 @@
 <hr>
 <div class="row">
     <div class="container m-4">
-        <!-- <div class="row">
-            <h1 *ngIf="answers.length != 0">{{answers.answerCount}} Answer<h1 *ngIf="answers.answerCount > 1"
+        <div class="row">
+            <h1 *ngIf="answers?.length != 0">{{answers.length}} Answer<h1 *ngIf="answers?.length > 1"
                     style="display: inline-block;">s</h1>
             </h1>
-        </div> -->
+        </div>
 
         <div class="row" *ngFor="let answer of answers">
-            <mat-card class="question-card mb-4" style="width:100% !important;">
+            <mat-card class="question-card m-auto" style="width:70% !important;margin-bottom: 10px !important;">
                 <mat-card-content>{{answer.content}}</mat-card-content>
                 <div class="row d-flex justify-content-end">
                     <div class="col-md-6">
                         <div class="row d-flex justify-content-end">
-                            <p style="font-size: 12px; margin-right:3px;">answered by</p><a class="question-card-link-item" [routerLink]="['/profile',user?._id]"><span>{{user?.name}}</span></a>
+                            <p style="font-size: 12px; margin-right:3px;">answered by</p><a
+                                class="question-card-link-item"
+                                [routerLink]="['/profile',user?._id]"><span>{{user?.name}}</span></a>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <app-like [data]="answer" [likeType]="likeType" [likeConfig]="likeConfig"></app-like>
-                    </div>                    
+                    </div>
                 </div>
             </mat-card>
         </div>
@@ -30,10 +32,19 @@
                     <ckeditor style="height:10%;" formControlName="content" name="PageContent" required
                         [config]="ckeConfig" debounce="500"></ckeditor>
 
-                    <button class="question-button" type="submit" mat-raised-button color="primary">Post Your
-                        Answer</button>
+                    <button 
+                    mat-raised-button
+                    class="question-button"
+                    type="submit"
+                    color="primary" 
+                    placement="right" 
+                    ngbPopover="Please login or sign up to answer this question."
+                    [closeDelay]="500" 
+                    triggers="mouseenter:mouseleave">Post Your Answer</button>
                 </form>
             </div>
+
+
         </div>
     </div>
 </div>

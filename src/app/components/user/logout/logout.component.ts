@@ -21,6 +21,7 @@ export class LogoutComponent implements OnInit {
   logout() {
     this.usersService.userLogout().subscribe(data => {
       this.tokenService.deleteTokenFromBrowser();
+      this.tokenService.deleteUserIdFromLocalStorage();
     },error => console.log(error));
   }
 

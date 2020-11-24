@@ -31,4 +31,25 @@ export class TokenService {
   isLoggedIn(): boolean {
     return (this.tokenCheck() && !this.jwtHelper.isTokenExpired(this.getTokenFromStorage()))  
   }
+
+  // User id
+
+  addUserIdToLocalStorage(userId:string):void {
+    if (window.localStorage.getItem("userId") !== null) {
+      window.localStorage.removeItem("userId");
+    }
+    window.localStorage.setItem("userId",userId);
+  }
+
+  deleteUserIdFromLocalStorage():void {
+    if(this.isLoggedIn() === false) {
+      window.localStorage.removeItem("userId");
+    }
+    window.localStorage.removeItem("userId");
+  }
+
+  getUserIdFromLocalStorage():string {
+    return window.localStorage.getItem("userId");
+  }
+
 }

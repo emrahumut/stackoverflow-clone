@@ -12,7 +12,7 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class LoginComponent implements OnInit {
 
-  
+
   constructor(
     private usersService: UsersService,
     private router: Router,
@@ -21,29 +21,35 @@ export class LoginComponent implements OnInit {
   ) { }
 
   loginForm: FormGroup
-  
+  loading: boolean = false
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
-      email: new FormControl('',[Validators.required, Validators.email]),
-      password: new FormControl('',[Validators.required])
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required])
     });
   }
 
   login() {
+    this.loading = true;
     this.usersService.userLogin(this.loginForm.value).subscribe(data => {
       this.tokenService.addTokenToLocalStorage(data.access_token);
+      this.tokenService.addUserIdToLocalStorage(data.data.id);
       this.router.navigateByUrl('/')
-      console.log(data);
-    }, 
-    error => console.log(error));
+    },
+      error => {
+        this.loading = false;
+        console.log(error)
+      });
   }
-  
+
   logout() {
     this.usersService.userLogout().subscribe(data => {
       this.tokenService.deleteTokenFromBrowser();
       console.log(data);
-    },error => console.log(error));
+    }, error => {
+      console.log(error)
+    });
   }
 
 }

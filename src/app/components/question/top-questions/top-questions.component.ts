@@ -19,19 +19,18 @@ export class TopQuestionsComponent implements OnInit {
 
   questions: Question;
   checkLog: boolean = false;
+  isLogged: boolean = this.tokenService.isLoggedIn();
+  loggedUserId: string = this.tokenService.getUserIdFromLocalStorage();
 
   ngOnInit(): void {
     this.checkLog = this.tokenService.isLoggedIn();
-    this.getAllQuestions();
-  }
 
-  getAllQuestions() {
     this.questionsService.getAllQuestions()
     .subscribe(s => {
       this.questions = s.data;
       console.log(this.questions);
     });
   }
-
+ 
 
 }

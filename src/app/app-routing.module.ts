@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './components/login/login.component';
-import { LogoutComponent } from './components/logout/logout.component';
-import { NewquestionComponent } from './components/newquestion/newquestion.component';
-import { ProfileComponent } from './components/profile/profile.component';
 import { QuestionDetailComponent } from './components/question-detail/question-detail.component';
-import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { NewquestionComponent } from './components/question/newquestion/newquestion.component';
+import { UpdateDeleteComponent } from './components/update-delete/update-delete.component';
+import { LoginComponent } from './components/user/login/login.component';
+import { LogoutComponent } from './components/user/logout/logout.component';
+import { ProfileComponent } from './components/user/profile/profile.component';
+import { SignUpComponent } from './components/user/sign-up/sign-up.component';
 import { LoginGuard } from './guards/login.guard';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 
@@ -49,7 +50,7 @@ const routes: Routes = [
       {
         path:":id/:slug",
         component:QuestionDetailComponent
-      }
+      },
     ]
   },
   {
@@ -60,7 +61,15 @@ const routes: Routes = [
       component:ProfileComponent,
       }
     ]
-
+  },
+  {
+    "path":"edit",
+    children: [
+      {
+        path:"question/:id",
+        component:UpdateDeleteComponent
+      }
+    ]
   }
 ];
 

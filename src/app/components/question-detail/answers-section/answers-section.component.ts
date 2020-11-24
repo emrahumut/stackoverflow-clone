@@ -20,9 +20,9 @@ export class AnswersSectionComponent implements OnInit {
   @Input() user: User;
 
   newAnswerForm: FormGroup;
-  ckeConfig: any;
+  ckeConfig: any = null;
   likeConfig: any;
-  likeCount: Number;
+  likeCount: Number = 0;
   likeType: string = "answer"; 
 
   constructor(
@@ -31,7 +31,6 @@ export class AnswersSectionComponent implements OnInit {
     private snakebar: SnackbarService,
     private route: ActivatedRoute,
     private answersService: AnswersService,
-
   ) { }
 
   ngOnInit(): void {

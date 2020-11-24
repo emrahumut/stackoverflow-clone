@@ -22,8 +22,24 @@
     </div>
     <div class="col-md-9 likesAndAnswers">
         <mat-card class="question-card">
-            <mat-card-content><a class="card-content-title"
-                    [routerLink]="['questions',question._id,question.slug]">{{question.title}}</a></mat-card-content>
+            <div class="row justify-content-between align-items-center">
+                <div class="col-md-8">
+                    <mat-card-content><a class="card-content-title"
+                            [routerLink]="['questions',question._id,question.slug]">{{question.title}}</a>
+                    </mat-card-content>
+                </div>
+                <div class="col-auto mr-4">
+                    <div *ngIf="isLogged && question.user == loggedUserId">
+                        <div class="mb-1">
+                            <a routerLink="edit/question/{{question._id}}" mat-raised-button color=warn
+                                style="text-decoration:none !important; margin-bottom: 7px;"
+                                >Edit
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="question-card-links">
                 <a class="question-card-link-item text-muted mr-1"
                     [routerLink]="['questions',question._id,question.slug]"
@@ -31,6 +47,7 @@
                 <a class="question-card-link-item"
                     [routerLink]="['questions',question._id,question.slug]"><span>{{question.user}}</span></a>
             </div>
+
         </mat-card>
     </div>
 
