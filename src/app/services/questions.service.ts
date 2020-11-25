@@ -17,13 +17,10 @@ export class QuestionsService {
 
 
   apiUrl: string = `${environment.baseUrl}/questions/`
-
   constructor(private http: HttpClient, private tokenService: TokenService) { }
 
 
   addQuestion(question: Question) {
-
-    console.log(question)
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -32,6 +29,7 @@ export class QuestionsService {
     };
 
     httpOptions.headers = httpOptions.headers.set('Authorization', this.tokenService.getTokenFromStorage())
+
     return this.http.post<Question>(this.apiUrl + "ask", question, httpOptions)
   }
 
@@ -52,5 +50,16 @@ export class QuestionsService {
     };
     httpOptions.headers = httpOptions.headers.set('Authorization', this.tokenService.getTokenFromStorage())
     return this.http.get<any>(this.apiUrl + id + "/like", httpOptions)
+  }
+
+  updateQuestion(questionId: string, question: Question) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'my-auth-token'
+      })
+    };
+    httpOptions.headers = httpOptions.headers.set('Authorization', this.tokenService.getTokenFromStorage())
+    return this.http.put<any>(this.apiUrl + questionId + "/edit", question ,httpOptions)
   }
 }

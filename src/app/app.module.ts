@@ -29,7 +29,10 @@ import { NewquestionComponent } from './components/question/newquestion/newquest
 import { TopQuestionsComponent } from './components/question/top-questions/top-questions.component';
 import { SignUpComponent } from './components/user/sign-up/sign-up.component';
 import { LoginComponent } from './components/user/login/login.component';
-import { UpdateComponent } from './components/update/update-delete.component';
+import { EditModule } from './components/edit/edit.module';
+import { QuestionEditComponent } from './components/edit/question-edit/question-edit.component';
+import { ProfileEditComponent } from './components/edit/profile-edit/profile-edit.component';
+import { AnswerEditComponent } from './components/edit/answer-edit/answer-edit.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +49,9 @@ import { UpdateComponent } from './components/update/update-delete.component';
     ProfileComponent,
     QuestionDetailBodyComponent,
     LikeComponent,
-    UpdateComponent
+    QuestionEditComponent,
+    ProfileEditComponent,
+    AnswerEditComponent,
   ],
   
   imports: [
@@ -65,7 +70,8 @@ import { UpdateComponent } from './components/update/update-delete.component';
     NgbModule,
     MatDialogModule,
     CKEditorModule,
-    MatDividerModule
+    MatDividerModule,
+    EditModule
   ],
   providers: [
     LoginGuard, 

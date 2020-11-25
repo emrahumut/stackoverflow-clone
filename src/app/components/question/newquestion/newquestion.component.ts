@@ -35,7 +35,7 @@ export class NewquestionComponent implements OnInit {
   newQuestion() {
     if (this.newQuestionForm.valid) {
       this.questionsService.addQuestion(this.newQuestionForm.value).subscribe(data => {
-        this.snackbar.openSnackBar('Your question have been saved successfully', 'X')
+        this.snackbar.openSnackBar('Your question has been saved successfully', 'X')
         console.log(data);
       }, err => console.log(err));
     }

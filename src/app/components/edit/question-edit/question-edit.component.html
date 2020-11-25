@@ -1,0 +1,30 @@
+<app-navbar></app-navbar>
+<app-navbar></app-navbar>
+<div class="signLogin">
+    <div class="container">
+        <div class="bg-image" style="display:flex; align-items:center;">
+            <h1 style="font-size: 30px; font-weight:400;">Ask a public question</h1>
+        </div>
+        <div class="row section-ask">
+            <form method="post" class="questionForm" [formGroup]="editQuestionForm" (ngSubmit)="updateQuestion()">
+                <div class="form-group ">
+                    <mat-form-field class="questionGroup">
+                        <mat-label>Title</mat-label>
+                        <input formControlName="title" matInput required>
+                        <!-- <mat-error
+                                *ngIf="(newUserControl.name.touched || submitted) && newUserControl.name.errors?.required">
+                                Display name required.
+                            </mat-error> -->
+                    </mat-form-field>
+                    <p class="text-muted" style="font-size: 15px;">Be specific and imagine you’re asking a question to
+                        another person</p>
+                </div>
+                <ckeditor formControlName="content" name="PageContent" required [config]="ckeConfig" debounce="500">
+                </ckeditor>
+                <!-- <mat-error *ngIf="newUserForm.get('email').hasError('required')">Email is <strong>required</strong></mat-error> -->
+                <button class="question-button" type="submit" mat-raised-button color="primary">Review your
+                    question</button>
+            </form>
+        </div>
+    </div>
+</div>
